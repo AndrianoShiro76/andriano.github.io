@@ -1,0 +1,46 @@
+// MAVBAR FIXED
+window.onscroll = function() {
+    const header = document.querySelector('header');
+    const toTop = document.querySelector('#to-top');
+    const fixedNav = header.offsetTop;
+
+    if (window.pageYOffset > fixedNav) {
+        header.classList.add('navbar-fixed');
+        toTop.classList.remove('hidden');
+        toTop.classList.add('flex');
+    } else {
+        header.classList.remove('navbar-fixed');
+        toTop.classList.add('hidden');
+        toTop.classList.remove('flex');
+    }
+};
+
+// NAVBAR HAMBURGER
+const hamburger = document.querySelector('#hamburger');
+const navMenu = document.querySelector('#nav-menu')
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('hamburger-active');
+    navMenu.classList.toggle('hidden');
+});
+
+// KLIK OUTSIDE HAMBURGER
+window.addEventListener('click', function(e) {
+    if(e.target != hamburger && e.target != navMenu) {
+        hamburger.classList.remove('hamburger-active');
+        navMenu.classList.add('hidden');
+    }
+})
+
+// DARK MODE TOGGLE
+const darkToggle = document.querySelector('#dark-toggle');
+const html = document.querySelector('html');
+
+darkToggle.addEventListener('click', function() {
+    if(darkToggle.checked) {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
+})
+ 
